@@ -3378,7 +3378,7 @@ An auto-property may optionally have a *property_initializer*, which is applied 
 > *end example*
 <!-- markdownlint-disable MD028 -->
 
-<!-- markdownlint-enablesure MD028 -->
+<!-- markdownlint-enable MD028 -->
 > *Example*: In the following
 >
 > ```csharp
@@ -3414,6 +3414,34 @@ An auto-property may optionally have a *property_initializer*, which is applied 
 > ```
 >
 > The assignments to the read-only field are valid, because they occur within the constructor.
+>
+> *end example*
+
+Although the backing field is hidden, that field may have field-targeted attributes applied directly to it via the automatically implemented property's *property_declaration* ([§14.7.1](classes.md#1471-general)).
+
+> *Example*: The following code
+>
+> ```csharp
+> public class Foo
+> {
+>     [field: NonSerialized]
+>     public string MySecret { get; set; }
+> }
+> ```
+> results in the field-targeted attribute `NonSerialized` being applied to the compiler-generated backing field, as if the code had been written as follows:
+> ```csharp
+> [Serializable]
+> public class Foo
+> {
+>     [NonSerialized]
+>     private string _mySecretBackingField;
+>     public string MySecret
+>     {
+>         get { return _mySecretBackingField; }
+>         set { _mySecretBackingField = value; }
+>     }
+> }
+> ```
 >
 > *end example*
 
