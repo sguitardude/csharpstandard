@@ -274,7 +274,7 @@ A *declaration_statement* declares a local variable or constant. Declaration sta
 
 ```ANTLR
 declaration_statement
-    : ('ref' 'readonly'?)? local_variable_declaration ';'
+    : local_variable_declaration ';'
     | local_constant_declaration ';'
     ;
 ```
@@ -285,7 +285,7 @@ A *local_variable_declaration* declares one or more local variables.
 
 ```ANTLR
 local_variable_declaration
-    : local_variable_type local_variable_declarators
+    : ('ref' 'readonly'?)? local_variable_type local_variable_declarators
     ;
 
 local_variable_type
