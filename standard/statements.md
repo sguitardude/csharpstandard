@@ -306,7 +306,7 @@ local_variable_declarator
 local_variable_initializer
     : expression
     | array_initializer
-    | stackalloc_initializer    // unsafe code support
+    | stackalloc_initializer
     ;
 ```
 
