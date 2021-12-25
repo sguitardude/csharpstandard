@@ -442,6 +442,22 @@ namespace System.Threading.Tasks
 }
 ```
 
+```csharp
+namespace System
+{
+    public ref struct ReadOnlySpan<T>
+    {
+    }
+}
+namespace System
+{
+    public ref struct Span<T>
+    {
+        public static implicit operator ReadOnlySpan<T>(Span<T> span);
+    }
+}
+```
+
 ## C.4 Format Specifications
 
 The meaning of the formats, as used in interpolated string expressions ([§11.7.3](expressions.md#1173-interpolated-string-expressions)), are defined in ISO/IEC 23271:2012. For convenience the following text is copied from the description of `System.IFormatable`.
