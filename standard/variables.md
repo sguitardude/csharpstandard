@@ -150,9 +150,9 @@ A local variable introduced by a *local_variable_declaration* is not automatical
 
 ### §discards-new-clause Discards
 
-In certain contexts, a programmer is required to define a variable whose value they don't care about and don't intend to use. Discards simplify the code in such situations. A *discard*, which is represented by the identifier `_`, is a predefined variable that is never definitely assigned ([§10.4](variables.md#104-definite-assignment)) and need not occupy any storage. Multiple discards may exist in the same scope, with each having the same or different types, or no type at all. With some restrictions, a discard may be used in the same scope as an explicitly declared variable named `_`.
+In certain contexts, a programmer is required to define a variable whose value they don't care about and don't intend to use. Discards simplify the code in such situations. A *discard*, which is represented by the identifier `_`, is a predefined variable that is never definitely assigned ([§9.4](variables.md#94-definite-assignment)) and need not occupy any storage. Multiple discards may exist in the same scope, with each having the same or different types, or no type at all. With some restrictions, a discard may be used in the same scope as an explicitly declared variable named `_`.
 
-For details of using discards when deconstructing tuples, see §deconstruction-expressions-new-clause. When calling methods with `out` parameters, see [§15.6.2.4](classes.md#15624-output-parameters). In a pattern matching operation with the `is` and `switch` statements, see [§12.11.11](121111-the-is-operator) and [§13.8.3](1383statements.md#the-switch-statement). As the left operand of a simple assignment, see [§12.1.8.2](expressions.md#12182-simple-assignment).
+For details of using discards when deconstructing tuples, see §deconstruction-expressions-new-clause. When calling methods with `out` parameters, see [§14.6.2.4](classes.md#14624-output-parameters). In a pattern matching operation with the `is` and `switch` statements, see [§11.11.11](expressions.md#111111-the-is-operator) and [§12.8.3](statements.md#1283-the-switch-statement). As the left operand of a simple assignment, see [§11.18.2](expressions.md#11182-simple-assignment).
 
 ## 9.3 Default values
 
