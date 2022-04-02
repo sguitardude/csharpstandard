@@ -1206,9 +1206,10 @@ return_statement
     | 'return' 'ref'? expression ';'
     ;
 ```
+
 A *return_statement* without *expression* is called a ***return-no-value***; one containing `ref` *expression* is called a ***return-by-ref***; and one containing only *expression* is called a ***return-by-value***.
 
-It is a compile-time error to use a return-no-value from a method declared as being returns-by-value or returns-by-ref ((§14.6.1)[classes.md#1461-general]).
+It is a compile-time error to use a return-no-value from a method declared as being returns-by-value or returns-by-ref ([§14.6.1](classes.md#1461-general)).
 
 It is a compile-time error to use a return-by-ref from a method declared as being returns-no-value or returns-by-value.
 

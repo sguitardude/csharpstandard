@@ -1614,9 +1614,9 @@ The optional *argument_list* ([§11.6.2](expressions.md#1162-argument-lists)) pr
 
 The result of evaluating an *invocation_expression* is classified as follows:
 
--   If the *invocation_expression* invokes a returns-no-value method ((§14.6.1)[classes.md#1461-general]) or a returns-no-value delegate, the result is nothing. An expression that is classified as nothing is permitted only in the context of a *statement_expression* ([§12.7](statements.md#127-expression-statements)) or as the body of a *lambda_expression* ([§11.16](expressions.md#1116-anonymous-function-expressions)). Otherwise, a binding-time error occurs.
--   Otherwise, if the *invocation_expression* invokes a returns-by-ref method ((§14.6.1)[classes.md#1461-general]) or a returns-by-ref delegate, the result is a variable with an associated type of the return type of the method or delegate. If the invocation is of an instance method, and the receiver is of a class type `T`, the associated type is picked from the first declaration or override of the method found when starting with `T` and searching through its base classes.
--   Otherwise, the *invocation_expression* invokes a returns-by-val method ((§14.6.1)[classes.md#1461-general]) or returns-by-val delegate, and the result is a value, with an associated type of the return type of the method or delegate. If the invocation is of an instance method, and the receiver is of a class type `T`, the associated type is picked from the first declaration or override of the method found when starting with `T` and searching through its base classes.
+- If the *invocation_expression* invokes a returns-no-value method ([§14.6.1](classes.md#1461-general)) or a returns-no-value delegate, the result is nothing. An expression that is classified as nothing is permitted only in the context of a *statement_expression* ([§12.7](statements.md#127-expression-statements)) or as the body of a *lambda_expression* ([§11.16](expressions.md#1116-anonymous-function-expressions)). Otherwise, a binding-time error occurs.
+- Otherwise, if the *invocation_expression* invokes a returns-by-ref method ([§14.6.1](classes.md#1461-general)) or a returns-by-ref delegate, the result is a variable with an associated type of the return type of the method or delegate. If the invocation is of an instance method, and the receiver is of a class type `T`, the associated type is picked from the first declaration or override of the method found when starting with `T` and searching through its base classes.
+- Otherwise, the *invocation_expression* invokes a returns-by-val method ([§14.6.1](classes.md#1461-general)) or returns-by-val delegate, and the result is a value, with an associated type of the return type of the method or delegate. If the invocation is of an instance method, and the receiver is of a class type `T`, the associated type is picked from the first declaration or override of the method found when starting with `T` and searching through its base classes.
 
 #### 11.7.8.2 Method invocations
 
@@ -4644,6 +4644,7 @@ If `ref` is present:
 Both *expression*s shall be variables having the same type, and that type is the type of the result.
 The result is a variable, which is writeable if both *expression* variables are writeable.
 The run-time processing of a ref conditional expression of the form `b ? ref x : ref y` consists of the following steps:
+
 - First, `b` is evaluated, and the `bool` value of `b` is determined:
   - If an implicit conversion from the type of `b` to `bool` exists, then this implicit conversion is performed to produce a `bool` value.
   - Otherwise, the `operator true` defined by the type of `b` is invoked to produce a `bool` value.
@@ -6065,7 +6066,7 @@ The `=` operator is called the ***simple assignment operator***. It assigns the
 
 The operator `= ref`  is called the ***ref assignment operator***. It makes the variable designated by the left operand, an alias for the variable designated by the right operand. The ref assignment operator is described in §ref-assignment-new-clause.
 
-The assignment operators other than the `=` and `= ref` operators are called the ***compound assignment operators***. These operators perform the indicated operation on the two operands, and then assign the resulting value to the variable, property, or indexer element given by the left operand. The compound assignment operators are described in [§12.18.3](expressions.md#12183-compound-assignment).
+The assignment operators other than the `=` and `= ref` operators are called the ***compound assignment operators***. These operators perform the indicated operation on the two operands, and then assign the resulting value to the variable, property, or indexer element given by the left operand. The compound assignment operators are described in [§11.18.3](expressions.md#11183-compound-assignment).
 
 The `+=` and `-=` operators with an event access expression as the left operand are called the ***event assignment operators***. No other assignment operator is valid with an event access as the left operand. The event assignment operators are described in [§11.18.4](expressions.md#11184-event-assignment).
 
@@ -6212,6 +6213,7 @@ The operation makes the left operand an alias of the right operand variable. The
 The ref assignment operator yields a *variable_reference* of the assigned type. It is writeable if the left operand is writeable.
 
 > *Example*: Here are some examples of using `= ref`:
+>
 > ```csharp
 > public static int M1() { … }
 > public static ref int M2() { … }
@@ -6229,6 +6231,7 @@ The ref assignment operator yields a *variable_reference* of the assigned type. 
 > r2 = ref (r1 = ref M2());  // OK; r1 is an alias to a writable variable,
 >                       // r2 is an alias (with read-only access) to the same variable
 > ```
+>
 > *end example*
 
 ### 11.18.3 Compound assignment
