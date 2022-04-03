@@ -985,6 +985,7 @@ When the outermost containing struct variable of a fixed-size buffer member is a
 See §stack-allocation for general information about the operator `stackalloc`. Here, the ability of that operator to result in a pointer is discussed.
 
 > *Example*:
+>
 > ```csharp
 > int* p1 = stackalloc int[3];                     // memory uninitialized
 > int* p2 = stackalloc int[3] { -10, -15, -30 };   // memory initialized
@@ -994,6 +995,7 @@ See §stack-allocation for general information about the operator `stackalloc`. 
 > long* p6 = stackalloc[] { 11, 12L, 13 };         // converts 11 and 13, and returns long*
 > long* p7 = stackalloc long[] { 11, 12, 13 };     // converts all and returns long*
 > ```
+>
 > *end example*
 
 Unlike access to arrays, access to the elements of a `stackalloc`ed block is an unsafe operation and is not range checked.
@@ -1058,6 +1060,7 @@ Unlike access to arrays, access to the elements of a `stackalloc`ed block is an 
 > }
 >
 > ```
+>
 > *end example*
 
 **End of conditionally normative text.**
